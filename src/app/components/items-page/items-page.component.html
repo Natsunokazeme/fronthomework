@@ -1,0 +1,19 @@
+<div></div>
+<ng-container  *ngFor="let item of items;let i = index">
+    <div *ngIf="i<5"  class="show-item" >
+
+        <span>
+            <mat-checkbox>Disabled</mat-checkbox>
+        </span>
+        <span>{{item.code}} </span>
+        <span>{{item.name}} </span>
+        <span>{{item.sort}} <img src="" alt="null"> </span>
+        <span>
+            <mat-slide-toggle>
+    
+            </mat-slide-toggle>
+        </span>
+        <span>1</span>  
+    </div>
+</ng-container>
+<app-paginator ></app-paginator>

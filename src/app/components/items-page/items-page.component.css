@@ -1,0 +1,11 @@
+.show-item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background-color: beige;
+    border-radius: 10px;
+    margin: 10px;
+
+
+}
