@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-items-page',
@@ -9,76 +10,85 @@ export class ItemsPageComponent implements OnInit {
   items = [
     {
       selected: false,
-      code:'whatever',
-      name:'whatevername',
-      sort:100,
-      disabled:false,
-      editable:true,
-      linkable:true,
-      deletable:true
+      code: 'whatever',
+      name: 'whatevername',
+      sort: 100,
+      disabled: false,
+      editable: true,
+      linkable: true,
+      deletable: true
     },
     {
       selected: false,
-      code:'test1',
-      name:'test1name',
-      sort:100,
-      disabled:false,
-      editable:true,
-      linkable:true,
-      deletable:true
+      code: 'test1',
+      name: 'test1name',
+      sort: 100,
+      disabled: false,
+      editable: true,
+      linkable: true,
+      deletable: true
     },
     {
       selected: false,
-      code:'test1',
-      name:'test1name',
-      sort:100,
-      disabled:false,
-      editable:true,
-      linkable:true,
-      deletable:true
+      code: 'test1',
+      name: 'test1name',
+      sort: 100,
+      disabled: false,
+      editable: true,
+      linkable: true,
+      deletable: true
     },
     {
       selected: false,
-      code:'test1',
-      name:'test1name',
-      sort:100,
-      disabled:false,
-      editable:true,
-      linkable:true,
-      deletable:true
+      code: 'testdwadawdwa1',
+      name: 'test1name',
+      sort: 100,
+      disabled: false,
+      editable: true,
+      linkable: true,
+      deletable: true
     },
     {
       selected: false,
-      code:'test1',
-      name:'test1name',
-      sort:100,
-      disabled:false,
-      editable:true,
-      linkable:true,
-      deletable:true
+      code: 'test1',
+      name: 'test1nadwadwadme',
+      sort: 100,
+      disabled: false,
+      editable: true,
+      linkable: true,
+      deletable: true
     },
     {
       selected: false,
-      code:'test1',
-      name:'test1name',
-      sort:100,
-      disabled:false,
-      editable:true,
-      linkable:true,
-      deletable:true
+      code: 'test1',
+      name: 'test1name',
+      sort: 100,
+      disabled: false,
+      editable: true,
+      linkable: true,
+      deletable: true
     },
     {
       selected: false,
-      code:'test1',
-      name:'test1name',
-      sort:100,
-      disabled:false,
-      editable:true,
-      linkable:true,
-      deletable:true
+      code: 'test1',
+      name: 'test1name',
+      sort: 100,
+      disabled: false,
+      editable: true,
+      linkable: true,
+      deletable: true
     },
   ]
-   length = this.items.length;
+  length = this.items.length;
+  pageSize = 5;
+  pageSizeOptions = [5, 10, 20, 25, 50];
+  startIndex = 0;
+  // MatPaginator Output
+  paginatorEvent(event: PageEvent) {
+    this.pageSize = event.pageSize;
+    this.startIndex = this.pageSize * event.pageIndex;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

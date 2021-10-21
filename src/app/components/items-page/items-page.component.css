@@ -1,11 +1,41 @@
-.show-item{
+#table {
+    background: rgb(221, 221, 221);
+}
+
+#tittle {
+    background: rgb(221, 221, 221);
+}
+
+.show-item {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 50px;
     background-color: beige;
     border-radius: 10px;
     margin: 10px;
+}
+.show-item>span{
+    text-align: center;
+}
+.selection {
+    margin-left: 20px;
+    min-width: 32px;
+    width: 32px;
+}
 
-
+.code{
+    min-width: 120px;
+}
+.category-name{
+    min-width: 120px;
+}
+.sort{
+    min-width: 100px;
+}
+.disable{
+    min-width: 50px;
+}
+.actions{
+    min-width: 120px;
 }

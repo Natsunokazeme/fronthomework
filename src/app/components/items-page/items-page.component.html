@@ -1,19 +1,34 @@
-<div></div>
-<ng-container  *ngFor="let item of items;let i = index">
-    <div *ngIf="i<5"  class="show-item" >
-
-        <span>
-            <mat-checkbox>Disabled</mat-checkbox>
+<div id="table">
+    <div class="show-item" id="tittle">
+        <span onclick="selectall" class="selection">
+            <mat-checkbox>全选</mat-checkbox>
         </span>
-        <span>{{item.code}} </span>
-        <span>{{item.name}} </span>
-        <span>{{item.sort}} <img src="" alt="null"> </span>
-        <span>
-            <mat-slide-toggle>
-    
-            </mat-slide-toggle>
-        </span>
-        <span>1</span>  
+        <span class="code"> Code</span>
+        <span class="category-name"> CategoryName</span>
+        <span class="sort"> Sort </span>
+        <span class="disable"> Disable </span>
+        <span class="actions">Actions</span>
+        <em></em>
     </div>
-</ng-container>
-<app-paginator ></app-paginator>
+    <ng-container *ngFor="let item of items;let i = index">
+        <div *ngIf="i<startIndex+pageSize&&i>=startIndex" class="show-item">
+
+            <span class="selection">
+                <mat-checkbox></mat-checkbox>
+            </span>
+            <span class="code">{{item.code}} </span>
+            <span class="category-name">{{item.name}} </span>
+            <span class="sort">{{item.sort}} <img src="" alt="null"> </span>
+            <span class="disable">
+                <mat-slide-toggle>
+
+                </mat-slide-toggle>
+            </span>
+            <span class="actions">test</span>
+            <em></em>
+        </div>
+    </ng-container>
+    <mat-paginator [length]=length [pageSize]=pageSize [pageSizeOptions]="pageSizeOptions"
+        (page)="paginatorEvent($event)">
+    </mat-paginator>
+</div>
