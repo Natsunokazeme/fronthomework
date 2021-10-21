@@ -8,6 +8,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { ItemsPageComponent } from './components/items-page/items-page.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MainComponent } from './components/main/main.component';
+import { TopComponent } from './components/main/top/top.component';
+import { CategoryEditComponent } from './components/category-edit/category-edit.component';
+import { AttachmentComponent } from './components/attachment/attachment.component';
+import { ShowAttachmentsComponent } from './components/show-attachments/show-attachments.component';
 
 
 
@@ -15,7 +20,12 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
-    ItemsPageComponent
+    ItemsPageComponent,
+    MainComponent,
+    TopComponent,
+    CategoryEditComponent,
+    AttachmentComponent,
+    ShowAttachmentsComponent
   ],
   imports: [
     BrowserModule,
