@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { PaginatorComponent } from './components/paginator/paginator.component';
-import { ItemsPageComponent } from './components/items-page/items-page.component';
+import { MainComponent } from './components/main/main.component'
 
 const routes: Routes = [
-  {path: '',component: ItemsPageComponent}
+  {path: '',component: MainComponent}
 ];
 
 @NgModule({

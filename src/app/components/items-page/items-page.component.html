@@ -1,7 +1,7 @@
 <div id="table">
     <div class="show-item" id="tittle">
         <span onclick="selectall" class="selection">
-            <mat-checkbox>全选</mat-checkbox>
+            <mat-checkbox color="primary">全选</mat-checkbox>
         </span>
         <span class="code"> Code</span>
         <span class="category-name"> CategoryName</span>
@@ -14,13 +14,13 @@
         <div *ngIf="i<startIndex+pageSize&&i>=startIndex" class="show-item">
 
             <span class="selection">
-                <mat-checkbox></mat-checkbox>
+                <mat-checkbox color="primary" (click)=itemSelect(item)></mat-checkbox>
             </span>
             <span class="code">{{item.code}} </span>
             <span class="category-name">{{item.name}} </span>
             <span class="sort">{{item.sort}} <img src="" alt="null"> </span>
             <span class="disable">
-                <mat-slide-toggle>
+                <mat-slide-toggle color="primary" (click)=itemDisable(item)>
 
                 </mat-slide-toggle>
             </span>

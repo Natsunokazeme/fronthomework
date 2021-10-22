@@ -83,10 +83,23 @@ export class ItemsPageComponent implements OnInit {
   pageSize = 5;
   pageSizeOptions = [5, 10, 20, 25, 50];
   startIndex = 0;
+
   // MatPaginator Output
   paginatorEvent(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.startIndex = this.pageSize * event.pageIndex;
+  }
+
+  itemSelect(item: any) {
+    item.selected=!item.selected;
+    console.log(item);
+
+  }
+
+  itemDisable(item: any) {
+    item.disabled=!item.disabled;
+    console.log(item.disabled);
+
   }
 
   constructor() { }
