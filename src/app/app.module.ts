@@ -22,7 +22,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { DeleteconfirmComponent } from './components/deleteconfirm/deleteconfirm.component';
 
 
 
@@ -41,6 +42,7 @@ import {MatButtonModule} from '@angular/material/button';
     CategoryEditComponent,
     AttachmentComponent,
     ShowAttachmentsComponent,
+    DeleteconfirmComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -56,7 +58,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatSelectModule,
     MatOptionModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

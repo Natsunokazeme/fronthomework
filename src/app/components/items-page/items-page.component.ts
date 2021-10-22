@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteconfirmComponent } from '../deleteconfirm/deleteconfirm.component';
+
 
 @Component({
   selector: 'app-items-page',
@@ -91,18 +94,28 @@ export class ItemsPageComponent implements OnInit {
   }
 
   itemSelect(item: any) {
-    item.selected=!item.selected;
+    item.selected = !item.selected;
     console.log(item);
 
   }
 
   itemDisable(item: any) {
-    item.disabled=!item.disabled;
+    item.disabled = !item.disabled;
     console.log(item.disabled);
 
   }
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+  deleteConfirm(item: any) {
+    const dialogRef = this.dialog.open(DeleteconfirmComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result)
+      // here to write the delete function
+        console.log(item);
+    });
+
+  }
+
 
   ngOnInit(): void {
   }

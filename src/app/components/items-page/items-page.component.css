@@ -1,9 +1,9 @@
 #table {
-    background: rgb(221, 221, 221);
+    background: #f5f5f5;
 }
 
 #tittle {
-    background: rgb(221, 221, 221);
+    background: #f5f5f5;
     margin-left: 20px;
 }
 
@@ -12,31 +12,37 @@
     justify-content: space-between;
     align-items: center;
     height: 50px;
-    background-color: beige;
+    background-color: #fff;
     border-radius: 10px;
     margin: 10px;
 }
-.show-item>span{
+
+.show-item>span {
     text-align: center;
 }
+
 .selection {
     margin-left: 20px;
     min-width: 32px;
     width: 32px;
 }
 
-.code{
+.code {
     min-width: 120px;
 }
-.category-name{
+
+.category-name {
     min-width: 120px;
 }
-.sort{
+
+.sort {
     min-width: 100px;
 }
-.disable{
+
+.disable {
     min-width: 50px;
 }
-.actions{
+
+.actions {
     min-width: 120px;
 }
