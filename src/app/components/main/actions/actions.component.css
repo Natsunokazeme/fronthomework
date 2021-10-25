@@ -1,0 +1,18 @@
+#actions-container {
+    margin: 20px 0 20px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons {
+    margin: 0 10px;
+    border-radius: 18px;
+}
+
+#disables{
+    color: #3f51b5;
+}
+
+#actives{
+    color: #ff4081;
+}

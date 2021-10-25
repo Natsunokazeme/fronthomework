@@ -1,6 +1,11 @@
 <div id="main-container">
     <app-top></app-top>
+
+    <app-actions [items]=items></app-actions>
+
+
     <div id="main-body">
+        <!-- treeselector   设想，点击一个叶子节点发送一个get请求获取新items并重新渲染， -->
         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
 
             <!-- This is the tree node template for expandable nodes -->
@@ -21,7 +26,8 @@
             </mat-nested-tree-node>
         </mat-tree>
 
-        <app-items-page [items]=items [length]=items.length></app-items-page>
+        <!-- 列表主体 -->
+        <app-items-page [items]=items [length]=items.length class="items-lists"></app-items-page>
     </div>
 
 </div>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowAttachmentsComponent } from './show-attachments.component';
+import { DisableconfirmComponent } from './disableconfirm.component';
 
-describe('ShowAttachmentsComponent', () => {
-  let component: ShowAttachmentsComponent;
-  let fixture: ComponentFixture<ShowAttachmentsComponent>;
+describe('DisableconfirmComponent', () => {
+  let component: DisableconfirmComponent;
+  let fixture: ComponentFixture<DisableconfirmComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowAttachmentsComponent ]
+      declarations: [ DisableconfirmComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShowAttachmentsComponent);
+    fixture = TestBed.createComponent(DisableconfirmComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -32,7 +32,7 @@ export class ItemsPageComponent implements OnInit {
     console.log(item);
 
   }
-  checked: boolean = false;
+  //选择
   selectall() {
     this.selectAll = !this.selectAll;
     for (let i = 0; i < this.items.length; i++) {
@@ -69,8 +69,11 @@ export class ItemsPageComponent implements OnInit {
     const deleteDialogRef = this.dialog.open(DeleteconfirmComponent);
     deleteDialogRef.afterClosed().subscribe(result => {
       if (result)
-        // here to write the delete function
-        console.log(item);
+      // here to write the delete function
+      for(let i=0;i<this.length;i++){
+        if(item==this.items[i])
+        this.items.splice(i,1);
+      }
     });
 
   }

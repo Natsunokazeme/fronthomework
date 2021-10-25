@@ -2,7 +2,7 @@
     <div class="show-item" id="tittle">
         <span class="selection">
             <!-- 表头 -->
-            <mat-checkbox color="primary" [checked]="selectAll" (change)='selectall()'>全选</mat-checkbox>
+            <mat-checkbox color="primary" [checked]="selectAll" (change)='selectall()'>SelectAll</mat-checkbox>
         </span>
         <span class="code"> Code</span>
         <span class="category-name"> CategoryName</span>
@@ -11,35 +11,38 @@
         <span class="actions">Actions</span>
         <em></em>
     </div>
-    <ng-container *ngFor="let item of items;let i = index">
-        <div *ngIf="i<startIndex+pageSize&&i>=startIndex" class="show-item">
+    <div class="show-items">
 
-            <span class="selection">
-                <mat-checkbox color="primary" [checked]="selectAll" (change)=itemSelect(item)></mat-checkbox>
-            </span>
-            <span class="code">{{item.code}} </span>
-            <span class="category-name">{{item.name}} </span>
-            <span class="sort">{{item.sort}} <img src="" alt="null"> </span>
-            <span class="disable">
-                <mat-slide-toggle color="primary" (click)=itemDisable(item)>
+        <ng-container *ngFor="let item of items;let i = index">
+            <div *ngIf="i<startIndex+pageSize&&i>=startIndex" class="show-item">
 
-                </mat-slide-toggle>
-            </span>
-            <span class="actions">
-                <button mat-icon-button color="primary" (click)="editSettings(item)">
-                    <mat-icon>edit</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" *ngIf="item.linkable">
-                    <mat-icon>link</mat-icon>
-                </button>
-                <button mat-icon-button (click)="deleteConfirm(item)">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </span>
-            <em></em>
-        </div>
-    </ng-container>
-    <mat-paginator [length]=length [pageSize]=pageSize [pageSizeOptions]="pageSizeOptions"
-        (page)="paginatorEvent($event)">
+                <span class="selection">
+                    <mat-checkbox color="primary" [checked]="item.selected" (change)=itemSelect(item)></mat-checkbox>
+                </span>
+                <span class="code">{{item.code}} </span>
+                <span class="category-name">{{item.name}} </span>
+                <span class="sort">{{item.sort}} <img src="" alt="null"> </span>
+                <span class="disable">
+                    <mat-slide-toggle color="primary" (click)=itemDisable(item) [checked]="item.disabled">
+
+                    </mat-slide-toggle>
+                </span>
+                <span class="actions">
+                    <button mat-icon-button color="primary" (click)="editSettings(item)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" *ngIf="item.linkable">
+                        <mat-icon>link</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="deleteConfirm(item)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </span>
+                <em></em>
+            </div>
+        </ng-container>
+    </div>
+    <mat-paginator [length]=length [pageSize]=pageSize [pageSizeOptions]="pageSizeOptions" class="paginator"
+        (page)="paginatorEvent($event)" showFirstLastButtons=true>
     </mat-paginator>
 </div>

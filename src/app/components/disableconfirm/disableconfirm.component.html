@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Warning!</h2>
+<mat-dialog-content class="mat-typography">
+<h3>
+    Are you fucking sure to disable those items ?
+</h3>
+</mat-dialog-content>
+<mat-dialog-actions align='center' >
+<button mat-button mat-dialog-close>Cancel</button>
+<button mat-button [mat-dialog-close]="true" cdkFocusInitial>Disable</button>
+</mat-dialog-actions>

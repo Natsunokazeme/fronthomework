@@ -1,15 +1,15 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-export interface DialogData {
-  selected: boolean,
-  code: string,
-  name: any,
-  sort: number,
-  disabled: boolean,
-  editable: boolean,
-  linkable: boolean,
-  deletable: boolean
+export class ItemData {
+  selected: boolean=false;
+  code: string='';
+  name: string='';
+  sort: number=0;
+  disabled:boolean=false;
+  editable: boolean=true;
+  linkable: boolean=true;
+  deletable: boolean=true;
 }
 
 @Component({
@@ -18,8 +18,8 @@ export interface DialogData {
   styleUrls: ['./category-edit.component.css']
 })
 export class CategoryEditComponent implements OnInit {
-  value = 'adw';
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData
+  value = '';
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ItemData
   ) { }
 
   ngOnInit(): void {
