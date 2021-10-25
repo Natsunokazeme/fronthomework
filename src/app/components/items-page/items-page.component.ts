@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { DeleteconfirmComponent } from '../deleteconfirm/deleteconfirm.component';
+import { CategoryEditComponent } from '../category-edit/category-edit.component';
+
+
 
 
 @Component({
@@ -10,82 +13,13 @@ import { DeleteconfirmComponent } from '../deleteconfirm/deleteconfirm.component
   styleUrls: ['./items-page.component.css']
 })
 export class ItemsPageComponent implements OnInit {
-  items = [
-    {
-      selected: false,
-      code: 'whatever',
-      name: 'whatevername',
-      sort: 100,
-      disabled: false,
-      editable: true,
-      linkable: true,
-      deletable: true
-    },
-    {
-      selected: false,
-      code: 'test1',
-      name: 'test1name',
-      sort: 100,
-      disabled: false,
-      editable: true,
-      linkable: true,
-      deletable: true
-    },
-    {
-      selected: false,
-      code: 'test1',
-      name: 'test1name',
-      sort: 100,
-      disabled: false,
-      editable: true,
-      linkable: true,
-      deletable: true
-    },
-    {
-      selected: false,
-      code: 'testdwadawdwa1',
-      name: 'test1name',
-      sort: 100,
-      disabled: false,
-      editable: true,
-      linkable: true,
-      deletable: true
-    },
-    {
-      selected: false,
-      code: 'test1',
-      name: 'test1nadwadwadme',
-      sort: 100,
-      disabled: false,
-      editable: true,
-      linkable: true,
-      deletable: true
-    },
-    {
-      selected: false,
-      code: 'test1',
-      name: 'test1name',
-      sort: 100,
-      disabled: false,
-      editable: true,
-      linkable: true,
-      deletable: true
-    },
-    {
-      selected: false,
-      code: 'test1',
-      name: 'test1name',
-      sort: 100,
-      disabled: false,
-      editable: true,
-      linkable: true,
-      deletable: true
-    },
-  ]
-  length = this.items.length;
+  selectAll = false;
+  @Input() items: any[] = [];
+  @Input() length: number = 0;
   pageSize = 5;
   pageSizeOptions = [5, 10, 20, 25, 50];
   startIndex = 0;
+
 
   // MatPaginator Output
   paginatorEvent(event: PageEvent) {
@@ -98,7 +32,13 @@ export class ItemsPageComponent implements OnInit {
     console.log(item);
 
   }
-
+  checked: boolean = false;
+  selectall() {
+    this.selectAll = !this.selectAll;
+    for (let i = 0; i < this.items.length; i++) {
+      this.items[i].selected = this.selectAll;
+    }
+  }
   itemDisable(item: any) {
     item.disabled = !item.disabled;
     console.log(item.disabled);
@@ -106,18 +46,36 @@ export class ItemsPageComponent implements OnInit {
   }
 
   constructor(public dialog: MatDialog) { }
+  editSettings(item: any) {
+    const preitem = Object.assign({}, item);
+    //将当前item当作data传入对话框
+    const editDialogRef = this.dialog.open(CategoryEditComponent, {
+      data:item 
+    });
+    editDialogRef.beforeClosed().subscribe(result => {
+      if (result){
+
+        // here to write the edit function
+        console.log(item);
+      }else{
+        //将item的值变为原来的值
+       item.code=preitem.code;
+       item.name=preitem.name;
+
+      }
+    });
+  }
   deleteConfirm(item: any) {
-    const dialogRef = this.dialog.open(DeleteconfirmComponent);
-    dialogRef.afterClosed().subscribe(result => {
+    const deleteDialogRef = this.dialog.open(DeleteconfirmComponent);
+    deleteDialogRef.afterClosed().subscribe(result => {
       if (result)
-      // here to write the delete function
+        // here to write the delete function
         console.log(item);
     });
 
   }
 
-
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+}
 
 }

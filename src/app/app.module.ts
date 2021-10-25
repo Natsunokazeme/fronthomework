@@ -6,6 +6,7 @@ import { TopComponent } from './components/main/top/top.component';
 import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 import { AttachmentComponent } from './components/attachment/attachment.component';
 import { ShowAttachmentsComponent } from './components/show-attachments/show-attachments.component';
+import { DeleteconfirmComponent } from './components/deleteconfirm/deleteconfirm.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DeleteconfirmComponent } from './components/deleteconfirm/deleteconfirm.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -59,7 +60,8 @@ import { DeleteconfirmComponent } from './components/deleteconfirm/deleteconfirm
     MatOptionModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

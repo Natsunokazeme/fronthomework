@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
+import * as Mock from 'mockjs';
+import { Random } from 'mockjs';
+
 
 interface FoodNode {
   name: string;
@@ -48,6 +51,31 @@ export class MainComponent implements OnInit {
   hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
 
 
+  mockdata = Mock.mock({
+    "array|10-100": [
+      {
+        selected: false,
+        'code': function () {
+          return Random.word();
+        },
+        'name': function () {
+          return Random.word();
+        },
+        "sort|1-100": 100,
+        disabled: false,
+        editable: true,
+        "linkable|1": true,
+        deletable: true
+      }
+    ]
+  })
+
+
+
+
+
+  // items = this.data[0];
+  items = this.mockdata.array;
 
   ngOnInit(): void {
   }
